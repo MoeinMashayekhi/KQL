@@ -1,1 +1,1 @@
-# KQL
+# KQL (Kusto Query Language)
