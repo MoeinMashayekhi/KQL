@@ -1,0 +1,9 @@
+DeviceEvents
+| where DeviceName contains "FixMe"
+| where ActionType == "UsbDriveMounted"
+| extend DriveLetter = tostring(parse_json(AdditionalFields).DriveLetter)
+| extend Manufacturer = tostring(parse_json(AdditionalFields).Manufacturer)
+| extend ProductName = tostring(parse_json(AdditionalFields).ProductName)
+| extend SerialNumber = tostring(parse_json(AdditionalFields).SerialNumber)
+| summarize by Timestamp, ActionType, InitiatingProcessAccountUpn, DriveLetter, Manufacturer, ProductName,  SerialNumber
+| order by Timestamp desc
