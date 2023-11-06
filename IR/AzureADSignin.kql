@@ -1,0 +1,4 @@
+SigninLogs
+| where UserPrincipalName contains "FixMe"
+| where IPAddress contains "FixMe"
+| project TimeGenerated, IPAddress, ResultType, ResultDescription, UserAgent, Location, AppDisplayName, UserPrincipalName, UserId
