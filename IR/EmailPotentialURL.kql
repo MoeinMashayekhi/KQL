@@ -1,0 +1,22 @@
+EmailEvents
+| project
+    TimeGenerated,
+    SenderFromAddress,
+    RecipientEmailAddress,
+    Subject,
+    EmailDirection,
+    DeliveryAction,
+    NetworkMessageId
+| join kind=inner (EmailUrlInfo) on NetworkMessageId
+| project
+    TimeGenerated,
+    SenderFromAddress,
+    RecipientEmailAddress,
+    EmailDirection,
+    Subject,
+    Url,
+    UrlDomain,
+    UrlLocation,
+    DeliveryAction,
+    NetworkMessageId
+| where UrlDomain contains "FixMe"
