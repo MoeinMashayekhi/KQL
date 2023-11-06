@@ -1,4 +1,4 @@
 DeviceNetworkEvents
 | where LocalIP contains "FixMe"
 | summarize min(TimeGenerated), max(TimeGenerated) by DeviceName, LocalIP
-| sort by max_TimeGenerated desc
+| sort by max_TimeGenerated desc 
