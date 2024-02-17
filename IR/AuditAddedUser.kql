@@ -1,0 +1,3 @@
+AuditLogs
+| where OperationName =~ "Add user"
+| project TimeGenerated, InitiatedBy.user.userPrincipalName, InitiatedBy.user.ipAddress, TargetResources[0].userPrincipalName, TargetResources[0].id
