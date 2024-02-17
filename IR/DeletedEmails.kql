@@ -1,0 +1,4 @@
+OfficeActivity
+| search "FixMe"
+| where Operation == "MoveToDeletedItems"
+| project TimeGenerated, UserId, Operation, OfficeWorkload, Path = tostring(parse_json(Folder).Path), Subject = tostring(parse_json(AffectedItems)[0].Subject), ResultStatus, ClientIP, ExternalAccess, OriginatingServer, MailboxOwnerUPN
