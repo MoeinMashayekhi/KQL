@@ -1,22 +1,3 @@
-EmailEvents
-| project
-    TimeGenerated,
-    SenderFromAddress,
-    RecipientEmailAddress,
-    Subject,
-    EmailDirection,
-    DeliveryAction,
-    NetworkMessageId
-| join kind=inner (EmailUrlInfo) on NetworkMessageId
-| project
-    TimeGenerated,
-    SenderFromAddress,
-    RecipientEmailAddress,
-    EmailDirection,
-    Subject,
-    Url,
-    UrlDomain,
-    UrlLocation,
-    DeliveryAction,
-    NetworkMessageId
-| where UrlDomain contains "FixMe"
+EmailUrlInfo| where Url contains "FixMe"
+| project NetworkMessageId, Url
+| join kind = inner (EmailEvents|project TimeGenerated,NetworkMessageId, SenderFromAddress, RecipientEmailAddress, Subject, EmailDirection, DeliveryAction) on NetworkMessageId
