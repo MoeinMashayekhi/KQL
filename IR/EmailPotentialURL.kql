@@ -1,4 +1,4 @@
 EmailUrlInfo
- where Url contains "FixMe"
+| where Url contains "FixMe"
 | project NetworkMessageId, Url
 | join kind = inner (EmailEvents|project TimeGenerated,NetworkMessageId, SenderFromAddress, RecipientEmailAddress, Subject, EmailDirection, DeliveryAction) on NetworkMessageId
