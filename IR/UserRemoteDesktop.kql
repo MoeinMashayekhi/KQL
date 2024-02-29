@@ -1,5 +1,5 @@
 SecurityEvent
 | where TimeGenerated > ago(90d)
 | where EventID == 4624 and LogonType == 10
-| where Account contains "FixMe"
+| where Account contains "FixMe"
 | summarize StartTimeUtc = min(TimeGenerated), EndTimeUtc = max(TimeGenerated), ComputerCount = dcount(Computer), ComputerSet = array_sort_asc(makeset(Computer)), ProcessSet = makeset(ProcessName) by Account, IpAddress, AccountType, Activity, LogonTypeName
